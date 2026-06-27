@@ -13,7 +13,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Session, select
 
 from app.core.config import settings
-from app.core.database import init_db, get_session
+from app.core.database import init_db, get_session, engine
 from app.models.rag_models import (
     Workspace, Project, Collection, Document, Chunk, Pipeline,
     EvaluationRun, AnalyticsLog, ChatSession, ChatMessage, PromptTemplate
@@ -55,7 +55,7 @@ os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
 @app.on_event("startup")
 def on_startup():
     init_db()
-    with Session(next(get_session())) as session:
+    with Session(engine) as session:
         if not session.exec(select(Workspace)).first():
             _seed_demo_data(session)
 
