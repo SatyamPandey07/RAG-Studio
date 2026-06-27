@@ -1,24 +1,41 @@
-import os
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings
 from typing import Optional
+
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "RAG Studio"
-    API_V1_STR: str = "/api/v1"
+    VERSION: str = "1.0.0"
     
-    # Databases
-    DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite:///./rag_studio.db")
-    QDRANT_HOST: str = os.getenv("QDRANT_HOST", "localhost")
-    QDRANT_PORT: int = int(os.getenv("QDRANT_PORT", 6333))
-    REDIS_URL: str = os.getenv("REDIS_URL", "redis://localhost:6379/0")
+    # Database — defaults to SQLite (zero setup)
+    DATABASE_URL: str = "sqlite:///./rag_studio.db"
     
-    # API Keys (Loaded from env or .env)
-    GEMINI_API_KEY: Optional[str] = os.getenv("GEMINI_API_KEY")
-    OPENAI_API_KEY: Optional[str] = os.getenv("OPENAI_API_KEY")
-    COHERE_API_KEY: Optional[str] = os.getenv("COHERE_API_KEY")
-    VOYAGE_API_KEY: Optional[str] = os.getenv("VOYAGE_API_KEY")
-    JINA_API_KEY: Optional[str] = os.getenv("JINA_API_KEY")
+    # AI Provider API Keys (optional — app works in DEMO_MODE without them)
+    GOOGLE_API_KEY: Optional[str] = None
+    OPENAI_API_KEY: Optional[str] = None
+    COHERE_API_KEY: Optional[str] = None
+    ANTHROPIC_API_KEY: Optional[str] = None
     
-    model_config = SettingsConfigDict(case_sensitive=True, env_file=".env")
+    # Demo Mode: if True, use simulated responses (no API keys required)
+    DEMO_MODE: bool = True
+    
+    # Qdrant — uses in-memory mode by default (no Docker required)
+    QDRANT_HOST: Optional[str] = None   # e.g. "localhost"
+    QDRANT_PORT: int = 6333
+    
+    # Embedding dimensions for default provider
+    EMBEDDING_DIMENSIONS: int = 768
+    
+    # LLM defaults
+    DEFAULT_LLM_MODEL: str = "gemini/gemini-2.0-flash"
+    DEFAULT_EMBEDDING_MODEL: str = "models/text-embedding-004"
+    
+    # File storage
+    UPLOAD_DIR: str = "./uploads"
+    MAX_FILE_SIZE_MB: int = 50
+
+    class Config:
+        env_file = ".env"
+        extra = "ignore"
+
 
 settings = Settings()
