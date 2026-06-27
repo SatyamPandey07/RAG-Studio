@@ -1,4 +1,4 @@
-# 🎨 RAG Studio
+# RAG Studio
 
 > **Design, Build, Evaluate, and Deploy Production-Grade RAG Systems**
 
@@ -6,13 +6,13 @@ RAG Studio is an interactive developer environment and no-code/low-code orchestr
 
 ---
 
-## 📸 Dashboard Mockup
+## Dashboard Mockup
 
 ![RAG Studio Dashboard](./dashboard_mockup.png)
 
 ---
 
-## 💡 What is RAG? (For Layman Users)
+## What is RAG? (For Layman Users)
 
 Imagine you ask a standard AI model (like ChatGPT) a question about a private company document, a recent news article, or your own notes. The AI won't know the answer because it was not in its training data, so it might make up a fake answer (called **hallucination**).
 
@@ -22,33 +22,33 @@ Imagine you ask a standard AI model (like ChatGPT) a question about a private co
 [ Your Question ]
        │
        ▼
-1. RETRIEVE 🔎  ───► Search your custom files (PDFs, text) for relevant passages
+1. RETRIEVE  ───► Search your custom files (PDFs, text) for relevant passages
        │
        ▼
-2. AUGMENT 📝   ───► Combine your question with the retrieved passages as context
+2. AUGMENT   ───► Combine your question with the retrieved passages as context
        │
        ▼
-3. GENERATE 🤖  ───► Send the combination to the AI (LLM) to write a grounded, fact-checked answer
+3. GENERATE  ───► Send the combination to the AI (LLM) to write a grounded, fact-checked answer
 ```
 
 This way, the AI operates like an open-book exam, answering questions based *only* on the pages it looked up.
 
 ---
 
-## 🚀 Key Modules you can Experiment With
+## Key Modules you can Experiment With
 
-1. **📁 Knowledge Sources**: Upload your own files (`.pdf`, `.txt`, `.md`, `.docx`, `.csv`, `.json`, `.html`). The pipeline parses, cleans, and indexes them into the vector database.
-2. **✂️ Chunking Studio**: Test how the app breaks long files into smaller paragraphs. You can slide controls to change chunk sizes and compare strategies (*Recursive, Fixed, Semantic, Token, Markdown*) side-by-side.
-3. **🔢 Embedding Studio**: Generate embedding vectors (mathematical representations of meaning) and preview the raw coordinates.
-4. **🔍 Hybrid Search & Fusion**: Drag sliders to balance **Dense Search** (semantic meaning/concept matches) and **Sparse Search** (exact keyword matching/BM25). The app uses Reciprocal Rank Fusion (RRF) to merge the results.
-5. **🏆 Re-ranking**: See how secondary cross-encoders re-sort retrieved items to put the absolute best content at the very top.
-6. **💬 Chat Playground**: Talk to your documents. Toggle the **Explain Retrieval Steps** accordion to see exactly which document chunks were found, what their similarity scores were, and the total latency/costs.
-7. **📊 Evaluation Studio**: Run tests on your pipeline to calculate quantitative scores like **Recall**, **Faithfulness** (no hallucinations), and **Groundedness**.
-8. **📈 Monitoring**: Track query volumes, cost breakdowns (LLM vs. Embedding), and user feedback (thumbs up/down) in real-time.
+1. **Knowledge Sources**: Upload your own files (`.pdf`, `.txt`, `.md`, `.docx`, `.csv`, `.json`, `.html`). The pipeline parses, cleans, and indexes them into the vector database.
+2. **Chunking Studio**: Test how the app breaks long files into smaller paragraphs. You can slide controls to change chunk sizes and compare strategies (*Recursive, Fixed, Semantic, Token, Markdown*) side-by-side.
+3. **Embedding Studio**: Generate embedding vectors (mathematical representations of meaning) and preview the raw coordinates.
+4. **Hybrid Search & Fusion**: Drag sliders to balance **Dense Search** (semantic meaning/concept matches) and **Sparse Search** (exact keyword matching/BM25). The app uses Reciprocal Rank Fusion (RRF) to merge the results.
+5. **Re-ranking**: See how secondary cross-encoders re-sort retrieved items to put the absolute best content at the very top.
+6. **Chat Playground**: Talk to your documents. Toggle the **Explain Retrieval Steps** accordion to see exactly which document chunks were found, what their similarity scores were, and the total latency/costs.
+7. **Evaluation Studio**: Run tests on your pipeline to calculate quantitative scores like **Recall**, **Faithfulness** (no hallucinations), and **Groundedness**.
+8. **Monitoring**: Track query volumes, cost breakdowns (LLM vs. Embedding), and user feedback (thumbs up/down) in real-time.
 
 ---
 
-## ⚡ Quick Start
+## Quick Start
 
 RAG Studio runs in **Demo Mode** by default, meaning **no API keys are required** to start experimenting. It uses SQLite and an in-memory Qdrant client to run instantly with zero database setup.
 
