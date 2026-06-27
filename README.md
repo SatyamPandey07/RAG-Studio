@@ -1,106 +1,107 @@
-# RAG Studio
+# 🎨 RAG Studio
 
-> **Design, Build, Evaluate and Deploy Production-Grade RAG Systems**
+> **Design, Build, Evaluate, and Deploy Production-Grade RAG Systems**
 
-RAG Studio is an advanced developer environment and low-code orchestrator designed to take Retrieval-Augmented Generation (RAG) applications from concept, through side-by-side experimentation, all the way into production with monitoring and explainability built in.
-
----
-
-## 🎨 Core Architecture
-
-```
-                       ┌────────────────────────┐
-                       │   Frontend (Next.js)   │
-                       └───────────┬────────────┘
-                                   │ (REST / Streaming)
-                                   ▼
-                       ┌────────────────────────┐
-                       │   Backend (FastAPI)    │
-                       └───────────┬────────────┘
-                                   │
-         ┌─────────────────────────┼─────────────────────────┐
-         ▼                         ▼                         ▼
-┌─────────────────┐       ┌─────────────────┐       ┌─────────────────┐
-│  Data & RAG     │       │     Queues      │       │     Vectors     │
-│  (PostgreSQL)   │       │ (Redis/Celery)  │       │ (Qdrant/Faiss)  │
-└─────────────────┘       └─────────────────┘       └─────────────────┘
-```
+RAG Studio is an interactive developer environment and no-code/low-code orchestrator designed to help you build, test, compare, and monitor **Retrieval-Augmented Generation (RAG)** systems. It provides full transparency and visual explainability into how AI retrieves documents and answers questions.
 
 ---
 
-## 🚀 Key Modules & Features
+## 📸 Dashboard Mockup
 
-1. **Authentication & RBAC**: Secure multi-tenant workspaces, organizations, API key lifecycle management, and audit logs.
-2. **Workspace & Projects**: Segment environments, indexes, collections, and pipeline versions per business domain.
-3. **Ingestion & Data Sources**: Native support for PDF, Docx, CSV, Notion, Confluence, Websites, Google Drive, S3, SQL DBs, and OCR.
-4. **Document Processing Pipeline**: Visualizes OCR, cleanups, metadata extraction, deduplication, chunking, and embedding.
-5. **Chunking Studio**: Dynamic preview pane comparing Fixed, Recursive, Token, HTML, and Semantic/Agentic chunking side by side.
-6. **Embedding Studio**: Provider benchmarks (Google, OpenAI, Voyage, Cohere, HuggingFace) detailing latencies, costs, and dimensions.
-7. **Vector Databases**: Connect and inspect namespaces, index types, metadata coverage, memory usage, and statistics.
-8. **Hybrid Retrieval Tuning**: Adjust sliders for Dense Search, Sparse (SPLADE/BM25) Search, and Reciprocal Rank Fusion (RRF) dynamically.
-9. **Explainable Retrieval**: Step-by-step visualization showing the exact query rewrite, retrieved chunks, reranking scores, and final prompt context.
-10. **Evaluation & Playground**: Side-by-side metric comparison (Faithfulness, Recall@K, Latency, Cost) with live chat testing.
+![RAG Studio Dashboard](./dashboard_mockup.png)
 
 ---
 
-## 📂 Project Structure
+## 💡 What is RAG? (For Layman Users)
+
+Imagine you ask a standard AI model (like ChatGPT) a question about a private company document, a recent news article, or your own notes. The AI won't know the answer because it was not in its training data, so it might make up a fake answer (called **hallucination**).
+
+**RAG (Retrieval-Augmented Generation)** solves this problem in three steps:
 
 ```
-RAG-Studio/
-├── docker-compose.yml       # Dev stack (FastAPI, Next.js, Postgres, Qdrant, Redis)
-├── README.md                # System documentation
-├── backend/
-│   ├── Dockerfile           # Backend builder
-│   ├── requirements.txt     # Python libraries
-│   └── app/
-│       ├── main.py          # FastAPI application entry
-│       ├── core/            # Database configs, environment variables
-│       ├── models/          # SQLModel schemas
-│       └── services/        # Chunkers, Embedders, RRF, Evaluation
-└── frontend/
-    ├── package.json         # React UI configuration
-    ├── tailwind.config.js   # Tailwinds tokens
-    └── src/
-        ├── DashboardApp.tsx # Responsive RAG Studio interactive dashboard
-        ├── main.tsx         # App mounting
-        └── index.css        # Stylesheet (glassmorphism, animations)
+[ Your Question ]
+       │
+       ▼
+1. RETRIEVE 🔎  ───► Search your custom files (PDFs, text) for relevant passages
+       │
+       ▼
+2. AUGMENT 📝   ───► Combine your question with the retrieved passages as context
+       │
+       ▼
+3. GENERATE 🤖  ───► Send the combination to the AI (LLM) to write a grounded, fact-checked answer
 ```
+
+This way, the AI operates like an open-book exam, answering questions based *only* on the pages it looked up.
+
+---
+
+## 🚀 Key Modules you can Experiment With
+
+1. **📁 Knowledge Sources**: Upload your own files (`.pdf`, `.txt`, `.md`, `.docx`, `.csv`, `.json`, `.html`). The pipeline parses, cleans, and indexes them into the vector database.
+2. **✂️ Chunking Studio**: Test how the app breaks long files into smaller paragraphs. You can slide controls to change chunk sizes and compare strategies (*Recursive, Fixed, Semantic, Token, Markdown*) side-by-side.
+3. **🔢 Embedding Studio**: Generate embedding vectors (mathematical representations of meaning) and preview the raw coordinates.
+4. **🔍 Hybrid Search & Fusion**: Drag sliders to balance **Dense Search** (semantic meaning/concept matches) and **Sparse Search** (exact keyword matching/BM25). The app uses Reciprocal Rank Fusion (RRF) to merge the results.
+5. **🏆 Re-ranking**: See how secondary cross-encoders re-sort retrieved items to put the absolute best content at the very top.
+6. **💬 Chat Playground**: Talk to your documents. Toggle the **Explain Retrieval Steps** accordion to see exactly which document chunks were found, what their similarity scores were, and the total latency/costs.
+7. **📊 Evaluation Studio**: Run tests on your pipeline to calculate quantitative scores like **Recall**, **Faithfulness** (no hallucinations), and **Groundedness**.
+8. **📈 Monitoring**: Track query volumes, cost breakdowns (LLM vs. Embedding), and user feedback (thumbs up/down) in real-time.
 
 ---
 
 ## ⚡ Quick Start
 
+RAG Studio runs in **Demo Mode** by default, meaning **no API keys are required** to start experimenting. It uses SQLite and an in-memory Qdrant client to run instantly with zero database setup.
+
 ### 1. Requirements
 Ensure you have the following installed:
-* Docker & Docker Compose
-* Python 3.10+ (for local backend development)
-* Node.js 18+ (for local frontend development)
+* [Node.js](https://nodejs.org/) (v18+)
+* [Python](https://www.python.org/) (v3.10+)
 
-### 2. Spinning up the Docker Environment
-From the root folder, run:
-```bash
-docker-compose up --build
-```
-This spins up:
-* **Frontend**: `http://localhost:3000` (Next.js dashboard)
-* **Backend**: `http://localhost:8000/docs` (FastAPI Swagger APIs)
-* **Vector Store**: `http://localhost:6333` (Qdrant UI dashboard)
-* **Database**: `localhost:5432` (PostgreSQL with pgvector)
+---
 
-### 3. Local Development Setup
+### 2. Startup Guide
 
-#### Backend:
+#### Terminal 1 — Backend API Server
 ```bash
 cd backend
+
+# 1. Create a local virtual environment
 python3 -m venv .venv
 source .venv/bin/activate
+
+# 2. Install backend dependencies
 pip install -r requirements.txt
+
+# 3. Start the FastAPI uvicorn server
 uvicorn app.main:app --reload --port 8000
 ```
+* **API Documentation**: [http://localhost:8000/docs](http://localhost:8000/docs)
+* **Verify Health Check**: [http://localhost:8000/](http://localhost:8000/)
 
-#### Frontend:
+#### Terminal 2 — Frontend User Interface
 ```bash
 cd frontend
+
+# 1. Install frontend packages
 npm install
-npm run dev -- --port 3000
+
+# 2. Start the Vite React app
+npm run dev
 ```
+* **Interactive UI**: Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+---
+
+### 3. Configuring Live Mode (Optional)
+
+To connect RAG Studio to real AI APIs (Google Gemini, OpenAI, Cohere):
+
+1. Inside the `backend/` directory, copy the example environment file:
+   ```bash
+   cp .env.example .env
+   ```
+2. Open `.env` in a text editor and configure:
+   * Change `DEMO_MODE=true` to `DEMO_MODE=false`.
+   * Add your `GOOGLE_API_KEY` (available for free at [Google AI Studio](https://aistudio.google.com)). This is used for Gemini 2.0 responses and text embeddings.
+   * (Optional) Add `OPENAI_API_KEY` or `COHERE_API_KEY` for other embedders/rerankers.
+3. Restart Terminal 1. The application will now generate real vector embeddings and LLM responses!
