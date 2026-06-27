@@ -1,0 +1,33 @@
+# Python environment
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+*.db
+
+# Node environment
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# IDE / OS files
+.DS_Store
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Local environment variables
+.env
+.env.production
+.env.local
+.env.development
