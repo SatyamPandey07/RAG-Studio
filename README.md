@@ -73,10 +73,10 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 # 3. Start the FastAPI uvicorn server
-uvicorn app.main:app --reload --port 8000
+uvicorn app.main:app --reload --port 8082
 ```
-* **API Documentation**: [http://localhost:8000/docs](http://localhost:8000/docs)
-* **Verify Health Check**: [http://localhost:8000/](http://localhost:8000/)
+* **API Documentation**: [http://localhost:8082/docs](http://localhost:8082/docs)
+* **Verify Health Check**: [http://localhost:8082/](http://localhost:8082/)
 
 #### Terminal 2 — Frontend User Interface
 ```bash
@@ -88,7 +88,7 @@ npm install
 # 2. Start the Vite React app
 npm run dev
 ```
-* **Interactive UI**: Open [http://localhost:5173](http://localhost:5173) in your browser.
+* **Interactive UI**: Open [http://localhost:3002](http://localhost:3002) in your browser.
 
 ---
 

@@ -14,7 +14,7 @@ import {
 } from 'recharts';
 import './index.css';
 
-const API = 'http://localhost:8000/api/v1';
+const API = 'http://localhost:8082/api/v1';
 
 // ─── API Helpers ─────────────────────────────────────────────────────────────
 async function apiFetch(path: string, opts?: RequestInit) {
