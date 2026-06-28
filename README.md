@@ -1,10 +1,10 @@
-# 🎨 RAG Studio
+# RAG Studio
 
 > **Design, Build, Evaluate, and Deploy Production-Grade RAG Systems**
 
 ---
 
-## 📋 Product Requirements Document (PRD)
+## Product Requirements Document (PRD)
 
 * **PDF Download**: [Download RAG_Studio_PRD.pdf](./RAG_Studio_PRD.pdf)
 * **Description**: This document contains the comprehensive requirements, system specifications, performance baselines, and implementation roadmap for the v1.0 release of RAG Studio, serving as the blueprint for our full-stack engineering pipeline.
@@ -75,13 +75,13 @@ RAG Studio is an interactive developer environment and no-code/low-code orchestr
 
 ---
 
-## 📸 Dashboard Mockup
+## Dashboard Mockup
 
 ![RAG Studio Dashboard](./dashboard_mockup.png)
 
 ---
 
-## What is RAG? (For Layman Users)
+## What is RAG?
 
 Imagine you ask a standard AI model (like ChatGPT) a question about a private company document, a recent news article, or your own notes. The AI won't know the answer because it was not in its training data, so it might make up a fake answer (called **hallucination**).
 
