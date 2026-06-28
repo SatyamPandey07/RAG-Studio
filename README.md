@@ -1,12 +1,21 @@
-# RAG Studio
+# 🎨 RAG Studio
 
 > **Design, Build, Evaluate, and Deploy Production-Grade RAG Systems**
+
+---
+
+## 📋 Product Requirements Document (PRD)
+
+* **Document Link**: [Download RAG Studio PRD (PDF)](./RAG_Studio_PRD.pdf)
+* **Description**: This document contains the comprehensive requirements, system specifications, performance baselines, and implementation roadmap for the v1.0 release of RAG Studio, serving as the blueprint for our full-stack engineering pipeline.
+
+---
 
 RAG Studio is an interactive developer environment and no-code/low-code orchestrator designed to help you build, test, compare, and monitor **Retrieval-Augmented Generation (RAG)** systems. It provides full transparency and visual explainability into how AI retrieves documents and answers questions.
 
 ---
 
-## Dashboard Mockup
+## 📸 Dashboard Mockup
 
 ![RAG Studio Dashboard](./dashboard_mockup.png)
 
@@ -106,40 +115,4 @@ To connect RAG Studio to real AI APIs (Google Gemini, OpenAI, Cohere):
    * (Optional) Add `OPENAI_API_KEY` or `COHERE_API_KEY` for other embedders/rerankers.
 3. Restart Terminal 1. The application will now generate real vector embeddings and LLM responses!
 
----
-
-## 📋 Product Requirements Document (PRD) Overview
-
-Here is the key summary of the **RAG Studio Product Requirements Document (v1.0)**:
-
-### 1. Goals for This Version (v1.0)
-* **Zero-Configuration Demo Mode**: Up and running in under five minutes with no API keys or cloud database setup.
-* **Interactive Studios**: Chunking, Embedding, Search, Re-ranking, and Evaluation studios where each pipeline component can be fine-tuned and tested side-by-side.
-* **Multi-Provider Support**: Seamlessly swap between Google Gemini, OpenAI, and Cohere.
-* **Quantitative Evaluation**: Concrete evaluation scores (Recall, Faithfulness, Groundedness) to measure pipeline performance.
-* **Portable Deployment**: Ready-to-go setup with Docker Compose.
-* **Auto-Generated Docs**: Self-documenting API endpoints using FastAPI's default Swagger integration.
-
-### 2. Out of Scope (v1.0)
-* Multi-tenant hosting, separate user accounts, and billing system.
-* Fine-tuning or retraining underlying AI models.
-* Real-time streaming chat responses (slated for v1.1).
-* Native iOS/Android mobile apps.
-* Rich media inputs (images, audio, video).
-
-### 3. Performance & Reliability Targets
-| Target Area | Requirement | Baseline Target |
-|:---|:---|:---|
-| **Speed** | Query round-trip time (live mode) | Under 5 seconds at the 95th percentile |
-| **Speed** | Starting up in demo mode | Under 10 seconds, no internet required |
-| **Scalability** | Documents per knowledge base | 1,000+ files, 1 million+ chunks |
-| **Reliability** | Uptime (self-hosted Docker) | 99.5% target |
-| **Security** | API key handling | Stored server-side in `.env` (never sent to browser) |
-| **Portability** | Supported platforms | Linux, macOS, Windows via Docker Compose |
-
-### 4. Implementation Roadmap
-* **Phase 1 — Foundation (Q3 2026)**: Ingestion pipeline, Chunking Studio, Embedding Studio, and basic Playground. *(Completed)*
-* **Phase 2 — Core AI (Q4 2026)**: Hybrid Search, Reranking, and live API integrations. *(Completed)*
-* **Phase 3 — Quality (Q1 2027)**: Evaluation Studio with Recall, Faithfulness, and Groundedness metrics. *(Completed)*
-* **Phase 4 — Operations (Q2 2027)**: Live Monitoring dashboard, multi-user support, and cloud deployment guides. *(Completed)*
 
