@@ -6,8 +6,68 @@
 
 ## 📋 Product Requirements Document (PRD)
 
-* **Document Link**: [Download RAG Studio PRD (PDF)](./RAG_Studio_PRD.pdf)
+* **PDF Download**: [Download RAG_Studio_PRD.pdf](./RAG_Studio_PRD.pdf)
 * **Description**: This document contains the comprehensive requirements, system specifications, performance baselines, and implementation roadmap for the v1.0 release of RAG Studio, serving as the blueprint for our full-stack engineering pipeline.
+* **Online Reader**: Expand the details block below to read the full 18-page PRD document page-by-page directly on GitHub (fully accessible for both logged-in and logged-out users).
+
+<details>
+<summary><b>📖 View Full PRD Online (18 Pages)</b></summary>
+
+### Page 1 — Cover
+![PRD Page 1](./docs/prd_pages/page_1.png)
+
+### Page 2 — Table of Contents
+![PRD Page 2](./docs/prd_pages/page_2.png)
+
+### Page 3 — What is RAG Studio?
+![PRD Page 3](./docs/prd_pages/page_3.png)
+
+### Page 4 — The Problem We Are Solving
+![PRD Page 4](./docs/prd_pages/page_4.png)
+
+### Page 5 — Goals for This Version
+![PRD Page 5](./docs/prd_pages/page_5.png)
+
+### Page 6 — Who Is This For?
+![PRD Page 6](./docs/prd_pages/page_6.png)
+
+### Page 7 — How the System Works
+![PRD Page 7](./docs/prd_pages/page_7.png)
+
+### Page 8 — How the System Works (Cont.)
+![PRD Page 8](./docs/prd_pages/page_8.png)
+
+### Page 9 — Features and Modules
+![PRD Page 9](./docs/prd_pages/page_9.png)
+
+### Page 10 — Features and Modules (Cont.)
+![PRD Page 10](./docs/prd_pages/page_10.png)
+
+### Page 11 — Features and Modules (Cont.)
+![PRD Page 11](./docs/prd_pages/page_11.png)
+
+### Page 12 — Performance and Reliability
+![PRD Page 12](./docs/prd_pages/page_12.png)
+
+### Page 13 — How to Set It Up
+![PRD Page 13](./docs/prd_pages/page_13.png)
+
+### Page 14 — Roadmap
+![PRD Page 14](./docs/prd_pages/page_14.png)
+
+### Page 15 — Risks and How We Handle Them
+![PRD Page 15](./docs/prd_pages/page_15.png)
+
+### Page 16 — How We Measure Success
+![PRD Page 16](./docs/prd_pages/page_16.png)
+
+### Page 17 — Glossary
+![PRD Page 17](./docs/prd_pages/page_17.png)
+
+### Page 18 — References
+![PRD Page 18](./docs/prd_pages/page_18.png)
+
+</details>
 
 ---
 
